@@ -15,6 +15,7 @@ public class ColumnText extends AbstractComponent {
   
   private int columns;
   private String text;
+  private boolean isText;
   
   private ColumnText(final int columns) {
     setWidth("100%");
@@ -51,13 +52,22 @@ public class ColumnText extends AbstractComponent {
     
     target.addAttribute(VColumnText.COLUMNS_INT, columns);
     target.addAttribute(VColumnText.TEXT_STRING, text);
+    target.addAttribute(VColumnText.IS_TEXT_BOOL, isText);
   }
   
   public void setText(final String text) {
     this.text = text;
+    isText = true;
+    requestRepaint();
   }
   
   public String getText() {
     return text;
+  }
+  
+  public void setHtml(final String html) {
+    text = html;
+    isText = false;
+    requestRepaint();
   }
 }
