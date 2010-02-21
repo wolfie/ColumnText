@@ -8,7 +8,9 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.Window;
 
+@SuppressWarnings("serial")
 public class ColumntextApplication extends Application {
+  
   @Override
   public void init() {
     final Window mainWindow = new Window("Columntext Application");

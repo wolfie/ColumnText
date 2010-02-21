@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+
+/* GWT2 CSS constant */
+@def gapSize 0.5em;
+
+@if user.agent gecko gecko1_8 safari {
+	.v-columntext {
+	
+		/* the CSS for CSS3-browsers. 
+		
+		The "\-" in the following rules are fixes for GWT to be able 
+		to understand these rules. Without the escape, compilation 
+		fails miserably, for some reason. See 
+		http://code.google.com/p/google-web-toolkit/issues/detail?id=3595 
+		*/
+		\-moz-column-gap: gapSize;
+		\-webkit-column-gap: gapSize;
+		column-gap: gapSize;
+	}
+	
+} @else {
+	.v-columntext {
+		/* 
+		the column CSS for the JS-version is defined separately 
+		below. 
+		*/
+	}
+}
+
+/* 
+The following rules are defined for all clients, but only the 
+JS-version will ever use them. 
+*/
+
+.v-columntext .column {
+	margin: 0 gapSize;
+}
+
+.v-columntext .column-first {
+	margin-left: 0;
+}
+
+.v-columntext .column-last {
+	margin-right: 0;
+}
