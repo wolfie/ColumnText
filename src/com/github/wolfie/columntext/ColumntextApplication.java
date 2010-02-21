@@ -4,7 +4,10 @@ import com.vaadin.Application;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.data.validator.IntegerValidator;
+import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.Window;
 
@@ -80,9 +83,21 @@ public class ColumntextApplication extends Application {
             + "In vitae vulputate augue. "
             + "Maecenas et lacus vel tellus tincidunt lobortis.</p>");
     
+    final Label spacer1 = new Label();
+    spacer1.setHeight("2em");
+    final Label spacer2 = new Label();
+    spacer2.setHeight("2em");
+    
+    final Panel textPanel = new Panel("Plain text", new CssLayout());
+    textPanel.addComponent(columnText);
+    final Panel htmlPanel = new Panel("HTML", new CssLayout());
+    htmlPanel.addComponent(columnHtml);
+    
     mainWindow.addComponent(horizontalLayout);
-    mainWindow.addComponent(columnText);
-    mainWindow.addComponent(columnHtml);
+    mainWindow.addComponent(spacer1);
+    mainWindow.addComponent(textPanel);
+    mainWindow.addComponent(spacer2);
+    mainWindow.addComponent(htmlPanel);
     
     width.addListener(new ValueChangeListener() {
       public void valueChange(final ValueChangeEvent event) {
