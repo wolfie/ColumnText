@@ -27,6 +27,10 @@
 	}
 }
 
+.v-columntext {
+	overflow: hidden;
+}
+
 /* 
 The following rules are defined for all clients, but only the 
 JS-version will ever use them. 
